@@ -3,7 +3,7 @@
 <p>Used Technologies:</p>
 <p>&nbsp;&nbsp;- FrontEnd: HTML / CSS / JavaScript / jQuery</p>
 <p>&nbsp;&nbsp;- BackEnd: Python => Flask / Django / FastAPI, SQLite3</p>
-<p><a href="">watch how application works - on my youtube channel</a></p>
+<p><a href="https://www.youtube.com/watch?v=wNoHWoQXdvQ">watch how application works - on my youtube channel</a></p>
 
 # App
 ![first](https://user-images.githubusercontent.com/106172218/219787597-53954bca-a1a4-4e38-8118-9415c23eb565.jpg)
