@@ -1,0 +1,22 @@
+{% for task in tasks %}
+<li>
+    <div class="showDiv">
+        <h5><i class="bi bi-star-fill me-3"></i>{{ task.title }}</h5>
+        <i class="bi bi-caret-down dropButton"></i>
+    </div>
+    <div class="settingsDiv">
+        <div class="buttonDiv">
+            <a class="update" href="#">UPDATE</a>
+            <a class="delete" href="{{ url_for('delete_page', record_id=task.id) }}">DELETE</a>
+        </div>
+        <div class="updateDiv">
+            <form method="post">
+                <input class="updateClass" type="text" name="updateInput" value="" required>
+                <input type="hidden" id="taskId" name="taskId" value="{{ task.id }}">
+                <input type="hidden" id="updateId" name="updateId" value="updateInput">
+                <input class="submitClass" type="submit" value="CONFIRM">
+            </form>
+        </div>
+    </div>
+</li>
+{% endfor %}

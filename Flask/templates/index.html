@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+<!-- TITLE -->
+{% block title %}To-Do App{% endblock %}
+
+<!-- EXTERNAL CSS -->
+{% block css_styles %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+{% endblock %}
+
+<!-- BODY CONTENT -->
+{% block content %}
+<div class="main">
+    <h1>To-Do App</h1>
+
+    <div class="scrollDiv">
+        <ul>
+            <!-- this will be auto generated -->
+            {% with tasks=all_tasks %}
+                {% include "include/list.html" %}
+            {% endwith %}
+        </ul>
+    </div>
+
+
+    <div class="flashDiv">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
+
+    <div>
+        <form class="addDiv" method="post">
+            <button class="addButton" type="submit"><i class="bi bi-plus-circle-dotted"></i></button>
+            <input type="hidden" id="newId" name="newId" value="addInput">
+            <input class="addInput" type="text" name="newTask" placeholder="Add a Task" required>
+        </form>
+    </div>
+
+</div>
+{% endblock %}
+
