@@ -1,0 +1,23 @@
+{% for task in tasks %}
+    <li>
+        <div class="showDiv">
+            <h5><i class="bi bi-star-fill me-3 myStar"></i>{{ task.title }}</h5>
+            <i class="bi bi-caret-down dropButton"></i>
+        </div>
+        <div class="settingsDiv">
+            <div class="buttonDiv">
+                <a class="update" href="#">UPDATE</a>
+                <a class="delete" href="{% url 'delete-page' id=task.id %}">DELETE</a>
+            </div>
+            <div class="updateDiv">
+                <form method="post">
+                    {% csrf_token %}
+                    {{ update_form }}
+                    <input type="hidden" id="updatingInput" name="myInput" value="chincho">
+                    <input type="hidden" id="taskID" name="my_task" value="{{ task.id }}">
+                    <button class="submitClass" name="confirmSubmit" type="submit">CONFIRM</button>
+                </form>
+            </div>
+        </div>
+</li>
+{% endfor %}

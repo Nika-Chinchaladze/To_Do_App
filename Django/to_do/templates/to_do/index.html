@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- PAGE TITLE -->
+{% block title %}To-Do List{% endblock  %}
+
+<!-- CSS STYLES -->
+{% block css_styles %}
+    <link rel="stylesheet" href="{% static 'to_do/css/styles.css' %}">
+{% endblock  %}
+
+<!-- BODY CONTENT -->
+{% block content %}
+<div class="main">
+    <h1>To-Do App</h1>
+
+    <div class="scrollDiv">
+        <ul>
+            <!-- this will be auto generated -->
+            {% include "to_do/include/list.html" with tasks=tasks update_form=update_form %}
+        </ul>
+    </div>
+
+    <div>
+        <form class="addDiv" method="post">
+            {% csrf_token %}
+            <input type="hidden" id="addingInput" name="myInput" value="lazvi">
+            <button class="addButton" name="addSubmit" type="submit"><i class="bi bi-plus-circle-dotted"></i></button>
+            {{ form }}
+        </form>
+    </div>
+
+</div>
+{% endblock  %}
+
+<!-- JAVASCRIPT LOGIC -->
+{% block js_script %}
+    <script src="{% static 'to_do/js/app.js' %}"></script>
+{% endblock  %}
